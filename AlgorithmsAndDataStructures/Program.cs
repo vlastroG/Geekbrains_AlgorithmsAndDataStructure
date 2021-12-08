@@ -28,6 +28,9 @@ namespace AlgorithmsAndDataStructures
             //throw new NotSupportedException("необработанное исключение");
 
             
+            //lesson1_Fibbonacci.Fibonacci();
+            
+            
             lesson1.CheckCorrect();
             lesson1.CheckIncorrect();
 
