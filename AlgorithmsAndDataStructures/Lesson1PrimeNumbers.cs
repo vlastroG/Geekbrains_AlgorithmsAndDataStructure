@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static AlgorithmsAndDataStructures.Program;
 
 namespace AlgorithmsAndDataStructures
 {
-    public class lesson1
+    internal class Lesson1PrimeNumbers : ILesson
     {
-        public static bool EvenOddNumber(string input)
+        public string Name => "prime";
+
+        public string Description => "1.1. Анализ принадлежности к множеству простых чисел";
+
+        public void Demo()
+        {
+            long value1 = 34651356659872;
+            Console.WriteLine($"Является {value1} простым числом? ");
+            long value2 = 199;
+            Console.WriteLine($"Является {value2} простым числом? ");
+        }
+
+        private bool EvenOddNumber(string input)
         {
 
 
@@ -72,10 +83,5 @@ namespace AlgorithmsAndDataStructures
             Console.WriteLine("=======================================================================");
 
         }
-
-
-
     }
 }
-
-

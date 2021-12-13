@@ -1,13 +1,20 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
 namespace AlgorithmsAndDataStructures
 {
+
+
     internal class Program
     {
+        static List<ILesson> _lessons = new List<ILesson>()
+        {
+            new Lesson1PrimeNumbers()
+        };
         static void Main(string[] args)
         {
             var builder = new ConfigurationBuilder();
@@ -27,10 +34,15 @@ namespace AlgorithmsAndDataStructures
             // Выбросить необработанное исключение - пример, как бывает.
             //throw new NotSupportedException("необработанное исключение");
 
-            
+            Console.WriteLine($"Для запуска задания введите его код. Доступные задания:");
+            foreach (ILesson lesson in _lessons)
+            {
+                Console.WriteLine($"код: {lesson.Name} ({lesson.Description})");
+            }
+
             //lesson1_Fibbonacci.Fibonacci();
-            
-            
+
+
             lesson1.CheckCorrect();
             lesson1.CheckIncorrect();
 
