@@ -76,5 +76,21 @@ namespace AlgorithmsAndDataStructures
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Вывод двусвязанного списка в консоль
+        /// </summary>
+        public void PrintList()
+        {
+            string list = "";
+            Node current = head;
+            while (current != null)
+            {
+                list += $"{current.Value}";
+                current = current.NextNode;
+            }
+
+            Console.WriteLine(list);
+        }
     }
 }
