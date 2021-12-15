@@ -32,35 +32,18 @@ namespace AlgorithmsAndDataStructures
             Log.Logger.Error("Приложение запущено");
 
             // Выбросить необработанное исключение - пример, как бывает.
-            //throw new NotSupportedException("необработанное исключение");
+            // throw new NotSupportedException("необработанное исключение");
+
+            // Демонстрация работы двусвязанного списка
+            Lesson2.testNodeList();
+
+            // Lesson1.lesson1_homework();
 
             Console.WriteLine($"Для запуска задания введите его код. Доступные задания:");
             foreach (ILesson lesson in _lessons)
             {
                 Console.WriteLine($"код: {lesson.Name} ({lesson.Description})");
             }
-
-            //lesson1_Fibbonacci.Fibonacci();
-
-
-            lesson1.CheckCorrect();
-            lesson1.CheckIncorrect();
-
-            Console.WriteLine("========================Выполнение программы===========================");
-
-
-
-            string exit = "exit";
-            string input;
-            do
-            {
-                Console.WriteLine("Введите положительное целое число:");
-                lesson1.EvenOddNumber(Console.ReadLine());
-                input = GetStringFromUser("Для выхода из приложения введите 'exit' или нажмите 'enter' для продолжения").ToLower();
-            } while (input != exit);
-
-            Console.WriteLine("Нажмите Enter для завершения работы приложения.");
-            Console.ReadLine();
 
 
         }

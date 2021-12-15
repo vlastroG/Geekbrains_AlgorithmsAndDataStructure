@@ -22,12 +22,30 @@ namespace AlgorithmsAndDataStructures
         private Node tail;
 
         /// <summary>
+        /// Длина двусвязанного списка
+        /// </summary>
+        public int Length { get; private set; }
+
+        /// <summary>
         /// Добавляет новый узел в двусвязанный список
         /// </summary>
         /// <param name="value"></param>
         public void AddNode(int value)
         {
-            throw new NotImplementedException();
+            Node newNode = new Node();
+            newNode.Value = value;
+            if (tail == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                newNode.PrevNode = tail;
+                tail.NextNode = newNode;
+            }
+            tail = newNode;
+            Length++;
+
         }
 
         /// <summary>
@@ -37,7 +55,25 @@ namespace AlgorithmsAndDataStructures
         /// <param name="value"></param>
         public void AddNodeAfter(Node node, int value)
         {
-            throw new NotImplementedException();
+            Node newNode = new Node();
+            newNode.Value = value;
+            newNode.PrevNode = node;
+
+            // Если заданный нод - хвост
+            if (tail == node)
+            {
+                node.NextNode = newNode;
+                tail = newNode;
+            }
+            // Если заданный нод в середине списка
+            else
+            {
+                node.NextNode.PrevNode = newNode;
+                newNode.NextNode = node.NextNode;
+                node.NextNode = newNode;
+            }
+
+            Length++;
         }
 
         /// <summary>
@@ -47,7 +83,17 @@ namespace AlgorithmsAndDataStructures
         /// <returns></returns>
         public Node FindNode(int searchValue)
         {
-            throw new NotImplementedException();
+            Node currentNode = head;
+            while (currentNode.Value != searchValue)
+            {
+                currentNode = currentNode.NextNode;
+                if (currentNode.NextNode == null)
+                {
+                    Console.WriteLine($"В списке отсутствует элемент со значением {searchValue}");
+                    break;
+                }
+            }
+            return currentNode;
         }
 
         /// <summary>
@@ -56,7 +102,7 @@ namespace AlgorithmsAndDataStructures
         /// <returns></returns>
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return Length;
         }
 
         /// <summary>
@@ -65,7 +111,47 @@ namespace AlgorithmsAndDataStructures
         /// <param name="index"></param>
         public void RemoveNode(int index)
         {
-            throw new NotImplementedException();
+            if (index > Length) // обработка, если index вне диапазона номеров элементов списка
+            {
+                Console.WriteLine($"В списке отсутствует элемент с номером {index}");
+            }
+
+            else if ((index == 0) && (Length == 1)) // Обработка удаления единственного элемента
+            {
+                Console.WriteLine("Последний элемент списка удален.");
+                head = null;
+                tail = null;
+                Length--;
+            }
+
+            else if ((index + 1 <= Length) && (Length > 1)) // Обработка, если удаляемый элемент в списке из 2+ элементов
+            {
+                int number = 0;
+                Node nodeToDelete = head;
+                while (number != index)
+                {
+                    nodeToDelete = nodeToDelete.NextNode;
+                    number++;
+                }
+                if (nodeToDelete == head)
+                {
+                    nodeToDelete.NextNode.PrevNode = null;
+                    head = nodeToDelete.NextNode;
+                }
+                else if (nodeToDelete == tail)
+                {
+                    nodeToDelete.PrevNode.NextNode = null;
+                    tail = nodeToDelete.PrevNode;
+                }
+                else 
+                {
+                    nodeToDelete.PrevNode.NextNode = nodeToDelete.NextNode;
+                    nodeToDelete.NextNode.PrevNode = nodeToDelete.PrevNode;
+                }
+
+                Length--;
+            }
+
         }
 
         /// <summary>
@@ -74,7 +160,33 @@ namespace AlgorithmsAndDataStructures
         /// <param name="node"></param>
         public void RemoveNode(Node node)
         {
-            throw new NotImplementedException();
+            Node nodeToDelete = node;
+            if (nodeToDelete == head) // здесь обработка, если удаляется голова
+            {
+                head = nodeToDelete.NextNode;
+                if (head == null) // здесь обработка, если в поданном списке 1 элемент
+                {
+                    tail = null;
+                    Console.WriteLine("Последний элемент списка удален.");
+                }
+
+                if (Length == 1) // здесь обработка, если остался 1 элемент в списке
+                {
+                    tail = nodeToDelete.NextNode;
+                }
+            }
+            else if (nodeToDelete == tail) // здесь идет обработка, если удаляется хвост и элементов в поданном списке >= 2
+            {
+                nodeToDelete.PrevNode.NextNode = null;
+                tail = nodeToDelete.PrevNode;
+            }
+            else // здесь идет обработка, если удаляется средний элемент списка и элементов в поданном списке >= 3
+            {
+                nodeToDelete.PrevNode.NextNode = nodeToDelete.NextNode;
+                nodeToDelete.NextNode.PrevNode = nodeToDelete.PrevNode;
+            }
+
+            Length--;
         }
 
         /// <summary>
@@ -86,7 +198,7 @@ namespace AlgorithmsAndDataStructures
             Node current = head;
             while (current != null)
             {
-                list += $"{current.Value}";
+                list += $"{current.Value}_";
                 current = current.NextNode;
             }
 

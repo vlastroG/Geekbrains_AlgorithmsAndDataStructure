@@ -72,14 +72,14 @@ namespace AlgorithmsAndDataStructures
             Console.WriteLine("=======================================================================");
             string correct = "9845612";
             Console.WriteLine($"Результат выполнения программы при правильном вводе '{correct}', например");
-            lesson1.EvenOddNumber(correct);
+            Lesson1.EvenOddNumber(correct);
         }
         public static void CheckIncorrect()
         {
             Console.WriteLine("=======================================================================");
             string incorrect = "ифм34";
             Console.WriteLine($"Результат выполнения программы при некорректном вводе '{incorrect}', например");
-            lesson1.EvenOddNumber(incorrect);
+            Lesson1.EvenOddNumber(incorrect);
             Console.WriteLine("=======================================================================");
 
         }
