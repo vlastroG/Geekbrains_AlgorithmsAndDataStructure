@@ -85,18 +85,31 @@ namespace AlgorithmsAndDataStructures
         {
             int number = 0;
             Node currentNode = head;
-            while (currentNode.Value != searchValue)
-            {
-                currentNode = currentNode.NextNode;
-                if (currentNode.NextNode == null)
+           
+                while (currentNode.Value != searchValue)
+                {
+                    currentNode = currentNode.NextNode;
+
+                    number++;
+
+                    if (currentNode == tail)
+                    {
+                        break;
+                    }
+                }
+                if (currentNode.Value == searchValue)
+                {
+
+                Console.WriteLine($"Элемент со значением {searchValue} находится в списке под номером {number}");
+                return currentNode;
+                }
+                else
                 {
                     Console.WriteLine($"В списке отсутствует элемент со значением {searchValue}");
-                    break;
+                    return null;
                 }
-                number++;
-            }
-            Console.WriteLine($"Элемент со значением {searchValue} находится в списке под номером {number}");
-            return currentNode;
+            
+            
         }
 
         /// <summary>
@@ -178,19 +191,24 @@ namespace AlgorithmsAndDataStructures
                 {
                     tail = nodeToDelete.NextNode;
                 }
+                Length--;
             }
             else if (nodeToDelete == tail) // здесь идет обработка, если удаляется хвост и элементов в поданном списке >= 2
             {
                 nodeToDelete.PrevNode.NextNode = null;
                 tail = nodeToDelete.PrevNode;
+                Length--;
             }
-            else // здесь идет обработка, если удаляется средний элемент списка и элементов в поданном списке >= 3
+            else if (nodeToDelete != null)// здесь идет обработка, если удаляется средний элемент списка и элементов в поданном списке >= 3
             {
                 nodeToDelete.PrevNode.NextNode = nodeToDelete.NextNode;
                 nodeToDelete.NextNode.PrevNode = nodeToDelete.PrevNode;
-            }
-
             Length--;
+            }
+            else
+            {
+                Console.WriteLine("Невозможно удалить элемент, не существующий в списке.");
+            }
         }
 
         /// <summary>
@@ -215,20 +233,24 @@ namespace AlgorithmsAndDataStructures
         /// <returns></returns>
         public Node FindNodeByNumber(int searchNumber)
         {
-            int number = 0;
-            Node currentNode = head;
-            while (number != searchNumber)
-            {
-                currentNode = currentNode.NextNode;
-                if (searchNumber > Length)
+                if ((searchNumber > Length)|| (searchNumber < 0))
                 {
-                    Console.WriteLine($"В списке отсутствует элемент со значением {searchNumber}");
-                    break;
+                    Console.WriteLine($"В списке отсутствует элемент с номером {searchNumber}");
+                return null;
                 }
-                number++;
-            }
+            else
+            {
+
+                int number = 0;
+                Node currentNode = head;
+                while (number != searchNumber)
+                {
+                    currentNode = currentNode.NextNode;
+                    number++;
+                }
             
-            return currentNode;
+                return currentNode;
+            }
         }
     }
 }

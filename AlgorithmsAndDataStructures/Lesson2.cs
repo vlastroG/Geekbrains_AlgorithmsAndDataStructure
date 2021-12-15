@@ -41,6 +41,22 @@ namespace AlgorithmsAndDataStructures
             myList.RemoveNode(1);
 
             myList.PrintList();
+
+            myList.FindNode(10);
+
+            myList.AddNode(90);
+
+            myList.RemoveNode(myList.FindNode(900));
+
+            myList.RemoveNode(90);
+
+            myList.PrintList();
+
+            myList.GetCount();
+
+            myList.FindNode(90);
+
+            myList.PrintList();
         }
     }
 }
