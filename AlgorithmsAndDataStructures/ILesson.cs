@@ -20,7 +20,7 @@ namespace AlgorithmsAndDataStructures
         /// Описание урока
         /// </summary>
         string Description { get; }
-        
+
         /// <summary>
         /// Вывод тестовых данных
         /// </summary>

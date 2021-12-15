@@ -85,31 +85,31 @@ namespace AlgorithmsAndDataStructures
         {
             int number = 0;
             Node currentNode = head;
-           
-                while (currentNode.Value != searchValue)
+
+            while (currentNode.Value != searchValue)
+            {
+                currentNode = currentNode.NextNode;
+
+                number++;
+
+                if (currentNode == tail)
                 {
-                    currentNode = currentNode.NextNode;
-
-                    number++;
-
-                    if (currentNode == tail)
-                    {
-                        break;
-                    }
+                    break;
                 }
-                if (currentNode.Value == searchValue)
-                {
+            }
+            if (currentNode.Value == searchValue)
+            {
 
                 Console.WriteLine($"Элемент со значением {searchValue} находится в списке под номером {number}");
                 return currentNode;
-                }
-                else
-                {
-                    Console.WriteLine($"В списке отсутствует элемент со значением {searchValue}");
-                    return null;
-                }
-            
-            
+            }
+            else
+            {
+                Console.WriteLine($"В списке отсутствует элемент со значением {searchValue}");
+                return null;
+            }
+
+
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace AlgorithmsAndDataStructures
                     nodeToDelete.PrevNode.NextNode = null;
                     tail = nodeToDelete.PrevNode;
                 }
-                else 
+                else
                 {
                     nodeToDelete.PrevNode.NextNode = nodeToDelete.NextNode;
                     nodeToDelete.NextNode.PrevNode = nodeToDelete.PrevNode;
@@ -203,7 +203,7 @@ namespace AlgorithmsAndDataStructures
             {
                 nodeToDelete.PrevNode.NextNode = nodeToDelete.NextNode;
                 nodeToDelete.NextNode.PrevNode = nodeToDelete.PrevNode;
-            Length--;
+                Length--;
             }
             else
             {
@@ -233,11 +233,11 @@ namespace AlgorithmsAndDataStructures
         /// <returns></returns>
         public Node FindNodeByNumber(int searchNumber)
         {
-                if ((searchNumber > Length)|| (searchNumber < 0))
-                {
-                    Console.WriteLine($"В списке отсутствует элемент с номером {searchNumber}");
+            if ((searchNumber > Length) || (searchNumber < 0))
+            {
+                Console.WriteLine($"В списке отсутствует элемент с номером {searchNumber}");
                 return null;
-                }
+            }
             else
             {
 
@@ -248,7 +248,7 @@ namespace AlgorithmsAndDataStructures
                     currentNode = currentNode.NextNode;
                     number++;
                 }
-            
+
                 return currentNode;
             }
         }
