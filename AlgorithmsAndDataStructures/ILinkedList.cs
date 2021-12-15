@@ -48,5 +48,12 @@ namespace AlgorithmsAndDataStructures
         /// <param name="searchValue"></param>
         /// <returns>Порядковый номер узла</returns>
         Node FindNode(int searchValue);
+
+        /// <summary>
+        /// Возвращает элемент по его порядковому номеру
+        /// </summary>
+        /// <param name="searchValue"></param>
+        /// <returns></returns>
+        Node FindNodeByNumber(int searchValue);
     }
 }

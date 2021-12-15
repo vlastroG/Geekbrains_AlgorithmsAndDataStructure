@@ -83,6 +83,7 @@ namespace AlgorithmsAndDataStructures
         /// <returns></returns>
         public Node FindNode(int searchValue)
         {
+            int number = 0;
             Node currentNode = head;
             while (currentNode.Value != searchValue)
             {
@@ -92,7 +93,9 @@ namespace AlgorithmsAndDataStructures
                     Console.WriteLine($"В списке отсутствует элемент со значением {searchValue}");
                     break;
                 }
+                number++;
             }
+            Console.WriteLine($"Элемент со значением {searchValue} находится в списке под номером {number}");
             return currentNode;
         }
 
@@ -102,6 +105,7 @@ namespace AlgorithmsAndDataStructures
         /// <returns></returns>
         public int GetCount()
         {
+            Console.WriteLine($"В списке {Length} элементов.");
             return Length;
         }
 
@@ -203,6 +207,28 @@ namespace AlgorithmsAndDataStructures
             }
 
             Console.WriteLine(list);
+        }
+        /// <summary>
+        /// Возвращает элемент по его номеру
+        /// </summary>
+        /// <param name="searchValue"></param>
+        /// <returns></returns>
+        public Node FindNodeByNumber(int searchNumber)
+        {
+            int number = 0;
+            Node currentNode = head;
+            while (number != searchNumber)
+            {
+                currentNode = currentNode.NextNode;
+                if (searchNumber > Length)
+                {
+                    Console.WriteLine($"В списке отсутствует элемент со значением {searchNumber}");
+                    break;
+                }
+                number++;
+            }
+            
+            return currentNode;
         }
     }
 }
