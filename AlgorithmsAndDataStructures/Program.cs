@@ -39,6 +39,8 @@ namespace AlgorithmsAndDataStructures
 
             // Lesson1.lesson1_homework();
 
+            Lesson3.SpeedComparison();
+
             Console.WriteLine($"Для запуска задания введите его код. Доступные задания:");
             foreach (ILesson lesson in _lessons)
             {
