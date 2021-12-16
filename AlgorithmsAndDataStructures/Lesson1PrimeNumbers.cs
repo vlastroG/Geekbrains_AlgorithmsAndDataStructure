@@ -3,39 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static AlgorithmsAndDataStructures.Program;
 
 namespace AlgorithmsAndDataStructures
 {
-    public class Lesson1
+    internal class Lesson1PrimeNumbers : ILesson
     {
-        /// <summary>
-        /// Домашнее задание к 1 уроку
-        /// </summary>
-        public static void lesson1_homework()
+        public string Name => "prime";
+
+        public string Description => "1.1. Анализ принадлежности к множеству простых чисел";
+
+        public void Demo()
         {
-            //lesson1_Fibbonacci.Fibonacci();
-
-            CheckCorrect();
-            CheckIncorrect();
-
-            Console.WriteLine("========================Выполнение программы===========================");
-
-
-
-            string exit = "exit";
-            string input;
-            do
-            {
-                Console.WriteLine("Введите положительное целое число:");
-                EvenOddNumber(Console.ReadLine());
-                input = GetStringFromUser("Для выхода из приложения введите 'exit' или нажмите 'enter' для продолжения").ToLower();
-            } while (input != exit);
-
-            Console.WriteLine("Нажмите Enter для завершения работы приложения.");
-            Console.ReadLine();
+            long value1 = 34651356659872;
+            Console.WriteLine($"Является {value1} простым числом? ");
+            long value2 = 199;
+            Console.WriteLine($"Является {value2} простым числом? ");
         }
-        public static bool EvenOddNumber(string input)
+
+        private bool EvenOddNumber(string input)
         {
 
 
@@ -87,21 +72,16 @@ namespace AlgorithmsAndDataStructures
             Console.WriteLine("=======================================================================");
             string correct = "9845612";
             Console.WriteLine($"Результат выполнения программы при правильном вводе '{correct}', например");
-            EvenOddNumber(correct);
+            Lesson1.EvenOddNumber(correct);
         }
         public static void CheckIncorrect()
         {
             Console.WriteLine("=======================================================================");
             string incorrect = "ифм34";
             Console.WriteLine($"Результат выполнения программы при некорректном вводе '{incorrect}', например");
-            EvenOddNumber(incorrect);
+            Lesson1.EvenOddNumber(incorrect);
             Console.WriteLine("=======================================================================");
 
         }
-
-
-
     }
 }
-
-

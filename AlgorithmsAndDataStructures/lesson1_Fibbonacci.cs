@@ -26,7 +26,7 @@ namespace AlgorithmsAndDataStructures
 
             Console.WriteLine($"Значение числа Фибоначчи с порядковым номером {FibonacciNumber}, вычисленное с помощью цикла, равно {FibonacciValueCycle}");
             TimeSpan ts = stopWatch1.Elapsed;
-            
+
             Console.WriteLine($"На вычисление циклом потребовалось {ts.TotalMilliseconds} ms");
 
             // Рекурсия
@@ -38,7 +38,7 @@ namespace AlgorithmsAndDataStructures
 
             Console.WriteLine($"Значение числа Фибоначчи с порядковым номером {FibonacciNumber}, вычисленное с помощью рекурсии, равно {FibonacciValueRecursion}");
             TimeSpan ts2 = stopWatch2.Elapsed;
-            
+
             Console.WriteLine($"На вычисление рекурсией потребовалось {ts2.TotalMilliseconds} ms");
 
         }

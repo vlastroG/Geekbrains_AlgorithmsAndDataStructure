@@ -1,13 +1,20 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
 namespace AlgorithmsAndDataStructures
 {
+
+
     internal class Program
     {
+        static List<ILesson> _lessons = new List<ILesson>()
+        {
+            new Lesson1PrimeNumbers()
+        };
         static void Main(string[] args)
         {
             var builder = new ConfigurationBuilder();
@@ -25,30 +32,18 @@ namespace AlgorithmsAndDataStructures
             Log.Logger.Error("Приложение запущено");
 
             // Выбросить необработанное исключение - пример, как бывает.
-            //throw new NotSupportedException("необработанное исключение");
+            // throw new NotSupportedException("необработанное исключение");
 
-            
-            //lesson1_Fibbonacci.Fibonacci();
-            
-            
-            lesson1.CheckCorrect();
-            lesson1.CheckIncorrect();
+            // Демонстрация работы двусвязанного списка
+            Lesson2.testNodeList();
 
-            Console.WriteLine("========================Выполнение программы===========================");
+            // Lesson1.lesson1_homework();
 
-
-
-            string exit = "exit";
-            string input;
-            do
+            Console.WriteLine($"Для запуска задания введите его код. Доступные задания:");
+            foreach (ILesson lesson in _lessons)
             {
-                Console.WriteLine("Введите положительное целое число:");
-                lesson1.EvenOddNumber(Console.ReadLine());
-                input = GetStringFromUser("Для выхода из приложения введите 'exit' или нажмите 'enter' для продолжения").ToLower();
-            } while (input != exit);
-
-            Console.WriteLine("Нажмите Enter для завершения работы приложения.");
-            Console.ReadLine();
+                Console.WriteLine($"код: {lesson.Name} ({lesson.Description})");
+            }
 
 
         }
