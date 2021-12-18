@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using AlgorithmsAndDataStructures.LF4;
 
 namespace AlgorithmsAndDataStructures
 {
@@ -31,7 +32,7 @@ namespace AlgorithmsAndDataStructures
             Log.Logger.Information("Приложение запущено");
             Log.Logger.Warning("Приложение запущено");
             Log.Logger.Error("Приложение запущено");
-
+            Console.WriteLine();
             // Выбросить необработанное исключение - пример, как бывает.
             // throw new NotSupportedException("необработанное исключение");
 
@@ -47,6 +48,7 @@ namespace AlgorithmsAndDataStructures
             {
                 Console.WriteLine($"код: {lesson.Name} ({lesson.Description})");
             }
+            Console.WriteLine();
             ExecuteLesson();
 
         }
@@ -98,7 +100,7 @@ namespace AlgorithmsAndDataStructures
                         lesson.Demo();
                     }
                 }
-
+                Console.WriteLine();
             }
         }
     }
