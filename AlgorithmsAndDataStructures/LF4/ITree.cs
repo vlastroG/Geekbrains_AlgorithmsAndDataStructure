@@ -32,6 +32,6 @@ namespace AlgorithmsAndDataStructures
         /// <summary>
         /// Вывести дерево в консоль
         /// </summary>
-        void PrintTree(); 
+        void PrintTree();
     }
 }

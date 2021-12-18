@@ -65,7 +65,7 @@ namespace AlgorithmsAndDataStructures
 
             // Шапка вывода
             Console.WriteLine("Points\t|\tPointStructDouble\t|\tPointClassDouble\t|\tRatio");
-            
+
             // Проведение теста сравнения производительности для разного количества точек
             for (int i = 0; i < countOfTests; i++)
             {
