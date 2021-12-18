@@ -13,7 +13,8 @@ namespace AlgorithmsAndDataStructures
     {
         static List<ILesson> _lessons = new List<ILesson>()
         {
-            new Lesson1PrimeNumbers()
+            new Lesson1PrimeNumbers(),
+            new Lesson4()
         };
         static void Main(string[] args)
         {
@@ -35,18 +36,18 @@ namespace AlgorithmsAndDataStructures
             // throw new NotSupportedException("необработанное исключение");
 
             // Демонстрация работы двусвязанного списка
-            Lesson2.testNodeList();
+            // Lesson2.testNodeList();
 
             // Lesson1.lesson1_homework();
 
-            Lesson3.SpeedComparison();
+            // Lesson3.SpeedComparison();
 
             Console.WriteLine($"Для запуска задания введите его код. Доступные задания:");
             foreach (ILesson lesson in _lessons)
             {
                 Console.WriteLine($"код: {lesson.Name} ({lesson.Description})");
             }
-
+            ExecuteLesson();
 
         }
 
@@ -80,6 +81,25 @@ namespace AlgorithmsAndDataStructures
         {
             Console.WriteLine(messageToUser);
             return Console.ReadLine();
+        }
+        /// <summary>
+        /// Выполняет функцию вывода задания урока (Demo) по введенному коду урока
+        /// </summary>
+        static void ExecuteLesson()
+        {
+            string lessonName = "";
+            while (lessonName != "exit")
+            {
+                lessonName = GetStringFromUser("Введите код урока (для выхода введите 'exit')").ToLower();
+                foreach (var lesson in _lessons)
+                {
+                    if (lessonName == lesson.Name)
+                    {
+                        lesson.Demo();
+                    }
+                }
+
+            }
         }
     }
 }
