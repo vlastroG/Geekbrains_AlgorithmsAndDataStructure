@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using AlgorithmsAndDataStructures.LF4;
+using AlgorithmsAndDataStructures.LF5;
 
 namespace AlgorithmsAndDataStructures
 {
@@ -15,7 +16,7 @@ namespace AlgorithmsAndDataStructures
         static List<ILesson> _lessons = new List<ILesson>()
         {
             new Lesson1PrimeNumbers(),
-            new Lesson4()
+            new Lesson4(), new Lesson5()
         };
         static void Main(string[] args)
         {
