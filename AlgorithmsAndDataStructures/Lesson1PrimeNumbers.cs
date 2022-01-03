@@ -8,18 +8,31 @@ namespace AlgorithmsAndDataStructures
 {
     internal class Lesson1PrimeNumbers : ILesson
     {
-        public string Name => "prime";
-
+        /// <summary>
+        /// Название, которое нужно ввести для старта выполнения дз.
+        /// </summary>
+        public string Name => "lesson1.1";
+        /// <summary>
+        /// Краткое описание урока
+        /// </summary>
         public string Description => "1.1. Анализ принадлежности к множеству простых чисел";
-
+        /// <summary>
+        /// Функция демонстрации выполнения задания
+        /// </summary>
         public void Demo()
         {
-            long value1 = 34651356659872;
+            long value1 = 3465135602;
             Console.WriteLine($"Является {value1} простым числом? ");
+            EvenOddNumber(value1.ToString());
             long value2 = 199;
             Console.WriteLine($"Является {value2} простым числом? ");
+            EvenOddNumber(value2.ToString());
         }
-
+        /// <summary>
+        /// Определяет, является ли введенное число простым.
+        /// </summary>
+        /// <param name="input">Вводимое число.</param>
+        /// <returns>Простое число или нет (bool).</returns>
         private bool EvenOddNumber(string input)
         {
 
@@ -67,6 +80,9 @@ namespace AlgorithmsAndDataStructures
                 return EvenOddNumber(Console.ReadLine());
             }
         }
+        /// <summary>
+        /// Проверка функции EvenOddNumber при корректном вводе
+        /// </summary>
         public static void CheckCorrect()
         {
             Console.WriteLine("=======================================================================");
@@ -74,6 +90,9 @@ namespace AlgorithmsAndDataStructures
             Console.WriteLine($"Результат выполнения программы при правильном вводе '{correct}', например");
             Lesson1.EvenOddNumber(correct);
         }
+        /// <summary>
+        /// Проверка функции EvenOddNumber при некорректном вводе
+        /// </summary>
         public static void CheckIncorrect()
         {
             Console.WriteLine("=======================================================================");

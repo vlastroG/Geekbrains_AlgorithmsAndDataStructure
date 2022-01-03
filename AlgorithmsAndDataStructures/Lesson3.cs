@@ -9,13 +9,20 @@ namespace AlgorithmsAndDataStructures
 {
     public class Lesson3 : ILesson
     {
-        public string Name => "lesson2";
-
-        public string Description => "Сравнение производительности class и struct";
-
+        /// <summary>
+        /// Название, которое нужно ввести для старта выполнения дз.
+        /// </summary>
+        public string Name => "lesson3";
+        /// <summary>
+        /// Краткое описание урока
+        /// </summary>
+        public string Description => "3. Сравнение производительности class и struct.";
+        /// <summary>
+        /// Функция демонстрации выполнения задания
+        /// </summary>
         public void Demo()
         {
-            throw new NotImplementedException();
+            SpeedComparison();
         }
         /// <summary>
         /// Создает массив заданного количества точек (ссылочного типа), расположенных в Декартовой системе координат

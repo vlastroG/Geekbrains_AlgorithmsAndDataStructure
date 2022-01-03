@@ -12,7 +12,7 @@ namespace AlgorithmsAndDataStructures.LF4
     {
         public string Name => "lesson4";
 
-        public string Description => "Деревья и хэш-таблицы";
+        public string Description => "4. Деревья и хэш-таблицы";
 
         public void Demo()
         {

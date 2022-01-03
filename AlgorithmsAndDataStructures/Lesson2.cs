@@ -7,8 +7,19 @@ using static AlgorithmsAndDataStructures.NodeList;
 
 namespace AlgorithmsAndDataStructures
 {
-    public class Lesson2
+    public class Lesson2 : ILesson
     {
+        /// <summary>
+        /// Название, которое нужно ввести для старта выполнения дз.
+        /// </summary>
+        public string Name => "lesson2";
+        /// <summary>
+        /// Краткое описание урока
+        /// </summary>
+        public string Description => "2. Реализация типа двусвязного списка.";
+        /// <summary>
+        /// Тест работы типа двусвязного списка.
+        /// </summary>
         public static void testNodeList()
         {
             NodeList myList = new NodeList();
@@ -57,6 +68,13 @@ namespace AlgorithmsAndDataStructures
             myList.FindNode(90);
 
             myList.PrintList();
+        }
+        /// <summary>
+        /// Функция демонстрации выполнения задания
+        /// </summary>
+        public void Demo()
+        {
+            testNodeList();
         }
     }
 }
