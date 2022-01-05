@@ -15,7 +15,7 @@ namespace AlgorithmsAndDataStructures
     {
         static List<ILesson> _lessons = new List<ILesson>()
         {
-            new Lesson1PrimeNumbers(),
+            new Lesson1PrimeNumbers(), new lesson1_Fibbonacci(), new Lesson2(), new Lesson3(),
             new Lesson4(), new Lesson5()
         };
         static void Main(string[] args)
@@ -37,17 +37,11 @@ namespace AlgorithmsAndDataStructures
             // Выбросить необработанное исключение - пример, как бывает.
             // throw new NotSupportedException("необработанное исключение");
 
-            // Демонстрация работы двусвязанного списка
-            // Lesson2.testNodeList();
-
-            // Lesson1.lesson1_homework();
-
-            // Lesson3.SpeedComparison();
 
             Console.WriteLine($"Для запуска задания введите его код. Доступные задания:");
             foreach (ILesson lesson in _lessons)
             {
-                Console.WriteLine($"код: {lesson.Name} ({lesson.Description})");
+                Console.WriteLine($"код: {lesson.Name}\t({lesson.Description})");
             }
             Console.WriteLine();
             ExecuteLesson();

@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsAndDataStructures
 {
-    class lesson1_Fibbonacci
+    class lesson1_Fibbonacci : ILesson
     {
+        /// <summary>
+        /// Название, которое нужно ввести для старта выполнения дз.
+        /// </summary>
+        public string Name => "lesson1.2";
+        /// <summary>
+        /// Краткое описание урока
+        /// </summary>
+        public string Description => "1.2. Сравнивает скорость вычисления чила Фибоначчи по его порядковому номеру через рекурсию и цикл.";
+
         /// <summary>
         /// Выводит число Фибоначчи в консоль по его порядковому номеру по циклу и по рекурсии
         /// </summary>
@@ -104,6 +113,12 @@ namespace AlgorithmsAndDataStructures
                 return GetIntFromUser("Введите целое число, большее или равное единице:");
             }
         }
-
+        /// <summary>
+        /// Функция демонстрации выполнения задания
+        /// </summary>
+        public void Demo()
+        {
+            Fibonacci();
+        }
     }
 }
